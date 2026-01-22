@@ -1,0 +1,105 @@
+[tool.poetry]
+name = "backend-academy-2025-python-template-hw3"
+version = "0.1.0"
+description = ""
+package-mode = false
+authors = ["n.beskodarov <n.beskodarov@tinkoff.ru>", "g.tarasov <g.tarasov@tbank.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+numpy = "^2.3.4"
+requests = "^2.32.3"  
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+isort = "^5.13.2"
+ruff = "^0.6.1"
+pytest = "*"
+pytest-cov = "*"
+pytest-deadfixtures = "*"
+pytest-mock = "*"
+pytest-repeat = "*"
+pytest-asyncio = "*"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+python_version = "3.12"
+warn_return_any = true
+warn_unused_configs = true
+exclude = ["/venv"]
+
+[tool.ruff]
+line-length = 88
+indent-width = 4
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+    "A005", # Checks for modules that use the same names as Python standard-library modules.
+    "ANN101", # Missing type annotation for self
+    "B008", # Checks for function calls in default function arguments.
+    "COM812", # Checks for the absence of trailing commas.
+    "D100", # Checks for undocumented public module definitions.
+    "D104", # Checks for undocumented public package definitions.
+    "D105", # Checks for undocumented magic method definitions.
+    "D107", # Checks for public __init__ method definitions that are missing docstrings.
+    "D203", # Checks for docstrings on class definitions that are not preceded by a blank line.
+    "D213", # Checks for docstring summary lines that are not positioned on the second physical line of the docstring.
+    "G004", # Checks for uses of f-strings to format logging messages.
+    "ISC001", # Checks for implicitly concatenated strings on a single line.
+    "RUF001", # Checks for ambiguous Unicode characters in strings.
+    "RUF002", # Checks for ambiguous Unicode characters in docstrings.
+    "RUF003", # Checks for ambiguous Unicode characters in comments.
+    "T201", # Print statements
+    "S311", # Random choice allowed
+    "DTZ007",
+    "PTH207",
+    "BLE001",
+
+    
+    "ANN003",  # Missing type annotation for kwargs
+]
+
+[tool.ruff.lint.per-file-ignores]
+"__init__.py" = [
+    "F401", # Checks for unused imports.
+]
+"tests/**.py" = [
+    "S101", # Checks for uses of the assert keyword.
+    "SLF001", # Checks for accesses on "private" class members.
+    "FBT001", # Checks for the use of boolean positional arguments in function definitions, as determined by the presence of a bool type hint.
+    "ANN001",  # Missing type annotation for function argument
+    "ANN003",  # Missing type annotation for kwargs
+    "ANN101", # Missing type annotation for `self`
+    "ANN201",  # Missing return type for public function
+    "PLR2004",  # Magic values in tests
+    "DTZ001",  # datetime without tzinfo in tests
+    "PTH108",  # os.unlink
+    "PTH110",  # os.path.exists
+    "PTH123",  # builtin-open
+    "PTH118",  # os.path.join
+    "E501", #line too long
+    "PT011", #raises is too broad
+    "RUF012", # Mutable class attributes should be annotated with `typing.ClassVar`
+    "ARG001",  # Unused function argument: `kwargs`
+    "ARG002",
+
+]
+"functional_tests/**.py" = [
+    "S101", # Checks for uses of the assert keyword.
+]
+"migrations/**.py" = [
+    "D103", # Checks for undocumented public function definitions.
+]
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+
+[tool.ruff.lint.pylint]
+max-args = 7
