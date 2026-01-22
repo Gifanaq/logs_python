@@ -17,7 +17,7 @@
 Python 3.8 или выше.
 
 Доступ к сети (для обработки удаленных логов).
-python```
+```python
 python main.py --path "logs/2025*" --format markdown --output report.md --from 2025-01-01
 ```
 Параметр,Описание,Обязательный
@@ -67,7 +67,7 @@ python main.py --path "logs/2025*" --format markdown --output report.md --from 2
 Используются модульные тесты для логики расчета перцентилей и парсинга дат.
 
 Для запуска тестов используйте:
-python```
+```python
 pytest
 ```
 # 8. Лицензия
