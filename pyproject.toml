@@ -3,7 +3,7 @@ name = "backend-academy-2025-python-template-hw3"
 version = "0.1.0"
 description = ""
 package-mode = false
-authors = ["n.beskodarov <n.beskodarov@tinkoff.ru>", "g.tarasov <g.tarasov@tbank.ru>"]
+authors = ["v.a.kashapov"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
